@@ -161,7 +161,12 @@ open class MenuItemView: UIView {
     }
     
     fileprivate func setupLabel(_ label: UILabel, text: MenuItemText) {
-        label.text = text.text
+        if let attributedText = text.attributedText {
+            label.attributedText = attributedText
+        }
+        else {
+            label.text = text.text
+        }
         updateLabel(label, text: text)
         addSubview(label)
     }

@@ -36,16 +36,19 @@ public struct MenuItemText {
     let selectedColor: UIColor
     let font: UIFont
     let selectedFont: UIFont
+    var attributedText: NSMutableAttributedString?
     
     public init(text: String = "Menu",
                 color: UIColor = UIColor.lightGray,
                 selectedColor: UIColor = UIColor.black,
                 font: UIFont = UIFont.systemFont(ofSize: 16),
-                selectedFont: UIFont = UIFont.systemFont(ofSize: 16)) {
+                selectedFont: UIFont = UIFont.systemFont(ofSize: 16),
+                attributedText: NSMutableAttributedString? = nil) {
         self.text = text
         self.color = color
         self.selectedColor = selectedColor
         self.font = font
         self.selectedFont = selectedFont
+        self.attributedText = attributedText
     }
 }

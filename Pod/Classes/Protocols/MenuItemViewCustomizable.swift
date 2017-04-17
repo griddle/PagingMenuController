@@ -27,7 +27,7 @@ public enum MenuItemDisplayMode {
     case text(title: MenuItemText)
     case multilineText(title: MenuItemText, description: MenuItemText)
     case image(image: UIImage, selectedImage: UIImage?)
-    case custom(view: UIView)
+    case custom(view: UIView, selectedView: UIView?)
 }
 
 public struct MenuItemText {
@@ -36,19 +36,16 @@ public struct MenuItemText {
     let selectedColor: UIColor
     let font: UIFont
     let selectedFont: UIFont
-    var attributedText: NSMutableAttributedString?
     
     public init(text: String = "Menu",
                 color: UIColor = UIColor.lightGray,
                 selectedColor: UIColor = UIColor.black,
                 font: UIFont = UIFont.systemFont(ofSize: 16),
-                selectedFont: UIFont = UIFont.systemFont(ofSize: 16),
-                attributedText: NSMutableAttributedString? = nil) {
+                selectedFont: UIFont = UIFont.systemFont(ofSize: 16)) {
         self.text = text
         self.color = color
         self.selectedColor = selectedColor
         self.font = font
         self.selectedFont = selectedFont
-        self.attributedText = attributedText
     }
 }

@@ -44,9 +44,17 @@ struct PagingMenuOptions1: PagingMenuControllerCustomizable {
     
     struct MenuItemUsers: MenuItemViewCustomizable {
         var displayMode: MenuItemDisplayMode {
-            let title = MenuItemText(text: "Menu")
-            let description = MenuItemText(text: String(describing: self))
-            return .multilineText(title: title, description: description)
+            let label = UILabel()
+            let attributes: [String: Any] = [NSKernAttributeName: 1.5,
+                                             NSForegroundColorAttributeName: UIColor.blue]
+            label.attributedText = NSMutableAttributedString(string: "Menu",
+                                                             attributes: attributes)
+            let selectedLabel = UILabel()
+            let selectedAttributes: [String: Any] = [NSKernAttributeName: 1.5,
+                                                     NSForegroundColorAttributeName: UIColor.black]
+            selectedLabel.attributedText = NSMutableAttributedString(string: "Menu",
+                                                                     attributes: selectedAttributes)
+            return .custom(view: label, selectedView: selectedLabel)
         }
     }
     struct MenuItemRepository: MenuItemViewCustomizable {
